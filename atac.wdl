@@ -1840,7 +1840,7 @@ workflow atac {
         File qc_json = qc_report.qc_json
         Boolean qc_json_ref_match = qc_report.qc_json_ref_match
 		Array[File?] output_bams = qc_report.output_bams
-		File bed = call_peak.bed
+		Array[File?] bed = call_peak.bed
     }
 }
 
