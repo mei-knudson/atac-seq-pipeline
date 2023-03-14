@@ -1840,7 +1840,7 @@ workflow atac {
         File qc_json = qc_report.qc_json
         Boolean qc_json_ref_match = qc_report.qc_json_ref_match
 		Array[File?] output_bams = qc_report.output_bams
-		Array[File?] bed = call_peak.bed
+		Array[File?] peak = call_peak.peak
     }
 }
 
@@ -2332,7 +2332,6 @@ task call_peak {
         File peak_region_size_qc = glob('*.peak_region_size.qc')[0]
         File peak_region_size_plot = glob('*.peak_region_size.png')[0]
         File num_peak_qc = glob('*.num_peak.qc')[0]
-		File bed = glob('*.bed')[0]
     }
     runtime {
         cpu : if peak_caller == 'macs2' then 1 else cpu
